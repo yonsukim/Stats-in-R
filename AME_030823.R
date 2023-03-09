@@ -42,7 +42,7 @@ View(y_1)
 
 ##################### Social Mobility Data ##########################################
 
-mob <- read_excel("C:\\Users\\kimy89\\Dropbox\\Research\\Mobility\\Mobility_data\\mob_02.xlsx") ### Needs to edit this path based on data location
+mob <- read_excel("C:\\Users\\..........\\Mobility_data\\mob_02.xlsx") ### Needs to edit this path based on data location
 
 
 # View(mob)
