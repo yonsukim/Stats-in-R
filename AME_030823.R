@@ -42,7 +42,7 @@ View(y_1)
 
 ##################### Social Mobility Data ##########################################
 
-mob <- read_excel("C:\\Users\\....Mobility_data\\mob_02.xlsx") ### Needs to edit this path based on data location
+mob <- read_excel("C:\\Users\\kimy89\\Dropbox\\Research\\Mobility\\Mobility_data\\mob_02.xlsx") ### Needs to edit this path based on data location
 
 
 # View(mob)
@@ -59,8 +59,9 @@ mob$mob2 <- as.numeric(mob$moc)
 # mob$mob2[mob$moc=="do"]<-3
 
 
-## ASsign reference group
+## Assign reference group
 mob$moc <- factor(mob$moc, levels=c("st", "do", "up"))
+mob$mari <- factor(mob$mari, levels=c("M", "N", "D"))
 # mob$moc <- factor(mob$moc, levels=c("st", "do", "u"), ordered = TRUE)
 # mob$moc <- relevel(mob$moc, ref='st')
 
@@ -100,6 +101,9 @@ plot(ggpredict(model_00, "moc [all]"), ci = FALSE, add.data = TRUE)
 
 margins(model_05)
 
+## Summary function provides AME, SE, Z, P, CI - Divided into two groups
+summary(margins(model_05, variables = c("moc", "sq1", "aggrp")))
+summary(margins(model_05, variables = c("edui","hinc","rlgi","mari")))
 
 
 # Happiness
@@ -118,6 +122,10 @@ exp(cbind(OR=coef(model_15),confint(model_15)))  ## Gives the same results as SA
 plot(ggpredict(model_15, "moc [all]"), ci = FALSE, add.data = TRUE)
 
 margins(model_15)
+
+## Summary function provides AME, SE, Z, P, CI - Divided into two groups
+summary(margins(model_15, variables = c("moc", "sq1", "aggrp")))
+summary(margins(model_15, variables = c("edui","hinc","rlgi","mari")))
 
 
 #### END OF THE TEST - 03/09/2023 ####
