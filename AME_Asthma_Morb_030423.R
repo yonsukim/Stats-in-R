@@ -88,6 +88,10 @@ ip31 <- glm(bsev_n ~ obs+age+race+Gender_val+medi, family = binomial(), data = o
 ip32 <- glm(int_n ~ obs+age+race+Gender_val+medi, family = binomial(), data = obss)
 ip33 <- glm(pa_n ~ obs+age+race+Gender_val+medi, family = binomial(), data = obss)
 
+ip31 <- glm(bsev_n ~ obs+race+Gender_val+medi, family = binomial(), data = obss)
+ip32 <- glm(int_n  ~ obs+race+Gender_val+medi, family = binomial(), data = obss)
+ip33 <- glm(pa_n   ~ obs+race+Gender_val+medi, family = binomial(), data = obss)
+
 ip41 <- glm(bsev_n ~ obs+age+race+Gender_val+medi, family = binomial(), data = obso)
 ip42 <- glm(int_n ~ obs+age+race+Gender_val+medi, family = binomial(), data = obso)
 ip43 <- glm(pa_n ~ obs+age+race+Gender_val+medi, family = binomial(), data = obso)
@@ -101,30 +105,15 @@ margins(ip31) #.04892
 margins(ip32) #.08302
 margins(ip33) #.09353
 
-margins(ip41) # .04915
-margins(ip42) # .06662
-margins(ip43) # .07563
+margins(ip41) #.04915
+margins(ip42) #.06662
+margins(ip43) #.07563
 
-margins(ip51) # .1551
-margins(ip52) # .1837
-margins(ip53) # .1819
-
-
-
-summary(model_05)  ## Gives the same results as SAS
-exp(cbind(OR=coef(model_05),confint(model_05)))  ## Gives the same results as SAS
-
-plot(ggpredict(model_00, "moc [all]"), ci = FALSE, add.data = TRUE)
-
-margins(model_05)
-
-## Summary function provides AME, SE, Z, P, CI - Divided into two groups
-summary(margins(model_05, variables = c("moc", "sq1", "aggrp")))
-summary(margins(model_05, variables = c("edui","hinc","rlgi","mari")))
+margins(ip51) #.1551
+margins(ip52) #.1837
+margins(ip53) #.1819
 
 
-
-
-
+ 
 #### END OF THE TEST - 04/07/2023 ####
 
