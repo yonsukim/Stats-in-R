@@ -24,14 +24,11 @@ library(readxl)
 
 ##################### Social Mobility Data ##########################################
 
-example <- read_excel("C:\\Users\\..........\\....xlsx") ### Needs to edit this path based on data location
-
-obs <- read_excel("C:\\Users\\Dongwoo\\Dropbox\\Research\\Asthma_Cormobdities\\Out\\out.xlsx", sheet="COMM_IP")
+obs <- read_excel("C:\\Users\\.....\\Dropbox\\Research\\Asthma_Cormobdities\\Out\\out.xlsx", sheet="COMM_IP")
 
 
 # View(obs)
 # summary(mob)
-
 
 
 ## Convering DV to a numeric variable
@@ -40,15 +37,14 @@ obs$int_n <- as.numeric(obs$int)
 obs$pa_n <- as.numeric(obs$pa)
 
 
-
+## Creating subgroups by ages - subset function
 obss = subset(obs, bsev_n !="9" & Race_val %in% c("2","3","4","5"))
 obso = subset(obs, bsev_n !="9" & Race_val %in% c("2","3","4","5") & AgeInYears > 18)
 obsy = subset(obs, bsev_n !="9" & Race_val %in% c("2","3","4","5") & AgeInYears < 19)
 # View(obss)
 
 
-
-## Average Marginal Effect (AME) test with the unadjusted model
+## Average Marginal Effect (AME) test with the unadjusted models
 
 ip01 <- glm(bsev_n ~ obs, family = binomial(), data = obss)
 ip02 <- glm(int_n ~ obs, family = binomial(), data = obss)
@@ -62,12 +58,10 @@ ip21 <- glm(bsev_n ~ obs, family = binomial(), data = obsy)
 ip22 <- glm(int_n ~ obs, family = binomial(), data = obsy)
 ip23 <- glm(pa_n ~ obs, family = binomial(), data = obsy)
 
-
-summary(ip1)
-exp(cbind(OR=coef(ip1),confint(ip1)))  ## Gives the same results as SAS
-plot(ggpredict(ip01, "moc [all]"), ci = FALSE, add.data = TRUE)
-
-coef(ip01)["1"]
+# summary(ip1)
+# exp(cbind(OR=coef(ip1),confint(ip1)))
+# plot(ggpredict(ip01, "moc [all]"), ci = FALSE, add.data = TRUE)
+# coef(ip01)["1"]
 
 margins(ip01) ## .1477
 margins(ip02) ## .1649
