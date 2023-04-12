@@ -1,4 +1,4 @@
-### Average Marginal Effect Model - ASTHMATIC DIABETES  04/07/23 ###
+### Average Marginal Effect Model - ASTHMATIC DIABETES  - ED 04/12/23 ###
 
  
 ##################### Packages to be installed #####################
@@ -21,7 +21,7 @@ data(mtcars)
 
 
 
-obs <- read_excel("C:\\Users\\.....\\Dropbox\\Research\\Asthma_Cormobdities\\Out\\out.xlsx", sheet="COMM_IP")
+obs <- read_excel("C:\\Users\\kimy89\\Dropbox\\Research\\Asthma_Cormobdities\\Out\\out_ED03.xlsx", sheet="COMM_ED")
 
 
 # View(obs)
@@ -174,5 +174,5 @@ summary(margins(ip62, variables = c("bmi")))
 summary(margins(ip63, variables = c("bmi")))
 
 
-#### END OF THE TEST - 04/07/2023 ####
+#### END OF THE TEST - 04/12/2023 ####
 
