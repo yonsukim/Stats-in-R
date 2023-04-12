@@ -19,8 +19,8 @@ data(mtcars)
 
 #####################################################################
 
-
-
+    
+ 
 obs <- read_excel("C:\\Users\\.....\\Dropbox\\Research\\Asthma_Cormobdities\\Out\\out.xlsx", sheet="COMM_IP")
 
 
