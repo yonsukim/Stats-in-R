@@ -21,7 +21,7 @@ data(mtcars)
 
     
  
-obs <- read_excel("C:\\Users\\.....\\Dropbox\\Research\\Asthma_Cormobdities\\Out\\out.xlsx", sheet="COMM_IP")
+obs <- read_excel("C:\\Users\\...\\Dropbox\\Research\\Asthma_Cormobdities\\Out\\out.xlsx", sheet="COMM_IP")
 
 
 # View(obs)
@@ -61,6 +61,20 @@ obsy30 = subset(obs, Race_val %in% c("2","3","4","5") & AgeInYears > 18 & bmi %i
 obsy31 = subset(obs, Race_val %in% c("2","3","4","5") & AgeInYears > 18 & bmi %in% c("0","3") & sev_n %in% c("1","9"))
 obsy32 = subset(obs, Race_val %in% c("2","3","4","5") & AgeInYears > 18 & bmi %in% c("0","3") & sev_n %in% c("2","9"))
 obsy33 = subset(obs, Race_val %in% c("2","3","4","5") & AgeInYears > 18 & bmi %in% c("0","3") & sev_n %in% c("3","9"))
+
+
+### Tables using INTERMIT as reference
+obsy110 = subset(obs, Race_val %in% c("2","3","4","5") & AgeInYears > 18 & bmi %in% c("0","1") & sev_n %in% c("0","1"))
+obsy111 = subset(obs, Race_val %in% c("2","3","4","5") & AgeInYears > 18 & bmi %in% c("0","1") & sev_n %in% c("0","2"))
+obsy112 = subset(obs, Race_val %in% c("2","3","4","5") & AgeInYears > 18 & bmi %in% c("0","1") & sev_n %in% c("0","3"))
+
+obsy120 = subset(obs, Race_val %in% c("2","3","4","5") & AgeInYears > 18 & bmi %in% c("0","2") & sev_n %in% c("0","1"))
+obsy121 = subset(obs, Race_val %in% c("2","3","4","5") & AgeInYears > 18 & bmi %in% c("0","2") & sev_n %in% c("0","2"))
+obsy122 = subset(obs, Race_val %in% c("2","3","4","5") & AgeInYears > 18 & bmi %in% c("0","2") & sev_n %in% c("0","3"))
+
+obsy130 = subset(obs, Race_val %in% c("2","3","4","5") & AgeInYears > 18 & bmi %in% c("0","3") & sev_n %in% c("0","1"))
+obsy131 = subset(obs, Race_val %in% c("2","3","4","5") & AgeInYears > 18 & bmi %in% c("0","3") & sev_n %in% c("0","2"))
+obsy132 = subset(obs, Race_val %in% c("2","3","4","5") & AgeInYears > 18 & bmi %in% c("0","3") & sev_n %in% c("0","3"))
 
 # View(obss)
 
@@ -104,6 +118,17 @@ obsy32$sev_n <- ifelse(obsy32$sev_n == 2, 1, obsy32$sev_n)
 obsy32$sev_n <- ifelse(obsy32$sev_n == 9, 0, obsy32$sev_n)
 obsy33$sev_n <- ifelse(obsy33$sev_n == 3, 1, obsy33$sev_n)
 obsy33$sev_n <- ifelse(obsy33$sev_n == 9, 0, obsy33$sev_n)
+
+# 3X4 models with INTERMIT as ref.
+obsy111$sev_n <- ifelse(obsy111$sev_n == 2, 1, obsy111$sev_n)
+obsy112$sev_n <- ifelse(obsy112$sev_n == 3, 1, obsy112$sev_n)
+
+obsy121$sev_n <- ifelse(obsy121$sev_n == 2, 1, obsy121$sev_n)
+obsy122$sev_n <- ifelse(obsy122$sev_n == 3, 1, obsy122$sev_n)
+
+obsy131$sev_n <- ifelse(obsy131$sev_n == 2, 1, obsy131$sev_n)
+obsy132$sev_n <- ifelse(obsy132$sev_n == 3, 1, obsy132$sev_n)
+
 
 # View(obsy1)
 
@@ -188,6 +213,20 @@ ip031 <- glm(sev_n ~ bmi+age+race+Gender_val+medi, family = binomial(), data = o
 ip032 <- glm(sev_n ~ bmi+age+race+Gender_val+medi, family = binomial(), data = obsy32)
 ip033 <- glm(sev_n ~ bmi+age+race+Gender_val+medi, family = binomial(), data = obsy33)
 
+### 3X4 models with INTERMIT as ref.
+ip110 <- glm(sev_n ~ bmi+age+race+Gender_val+medi, family = binomial(), data = obsy110)
+ip111 <- glm(sev_n ~ bmi+age+race+Gender_val+medi, family = binomial(), data = obsy111)
+ip112 <- glm(sev_n ~ bmi+age+race+Gender_val+medi, family = binomial(), data = obsy112)
+
+ip120 <- glm(sev_n ~ bmi+age+race+Gender_val+medi, family = binomial(), data = obsy120)
+ip121 <- glm(sev_n ~ bmi+age+race+Gender_val+medi, family = binomial(), data = obsy121)
+ip122 <- glm(sev_n ~ bmi+age+race+Gender_val+medi, family = binomial(), data = obsy122)
+
+ip130 <- glm(sev_n ~ bmi+age+race+Gender_val+medi, family = binomial(), data = obsy130)
+ip131 <- glm(sev_n ~ bmi+age+race+Gender_val+medi, family = binomial(), data = obsy131)
+ip132 <- glm(sev_n ~ bmi+age+race+Gender_val+medi, family = binomial(), data = obsy132)
+
+
 summary(ip60)
 summary(ip61)
 summary(ip62)
@@ -207,6 +246,20 @@ summary(ip030)
 summary(ip031)
 summary(ip032)
 summary(ip033)
+
+summary(ip110)
+summary(ip111)
+summary(ip112)
+
+summary(ip120)
+summary(ip121)
+summary(ip122)
+
+summary(ip130)
+summary(ip131)
+summary(ip132)
+
+
 
 
 margins(ip31) #.1255  .04892
@@ -264,5 +317,19 @@ summary(margins(ip031, variables = c("bmi")))
 summary(margins(ip032, variables = c("bmi")))
 summary(margins(ip033, variables = c("bmi")))
 
-#### END OF THE TEST - 04/07/2023 ####
+# 3x4 models with INTMIT as ref.
+summary(margins(ip110, variables = c("bmi")))
+summary(margins(ip111, variables = c("bmi")))
+summary(margins(ip112, variables = c("bmi")))
+
+summary(margins(ip120, variables = c("bmi")))
+summary(margins(ip121, variables = c("bmi")))
+summary(margins(ip122, variables = c("bmi")))
+
+summary(margins(ip130, variables = c("bmi")))
+summary(margins(ip131, variables = c("bmi")))
+summary(margins(ip132, variables = c("bmi")))
+
+
+#### END OF THE TEST - 04/19/2023 ####
 
