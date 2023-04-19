@@ -119,7 +119,7 @@ obsy32$sev_n <- ifelse(obsy32$sev_n == 9, 0, obsy32$sev_n)
 obsy33$sev_n <- ifelse(obsy33$sev_n == 3, 1, obsy33$sev_n)
 obsy33$sev_n <- ifelse(obsy33$sev_n == 9, 0, obsy33$sev_n)
 
-# 3X4 models with INTERMIT as ref.
+# 3X3 models with INTERMIT as ref.
 obsy111$sev_n <- ifelse(obsy111$sev_n == 2, 1, obsy111$sev_n)
 obsy112$sev_n <- ifelse(obsy112$sev_n == 3, 1, obsy112$sev_n)
 
@@ -213,7 +213,7 @@ ip031 <- glm(sev_n ~ bmi+age+race+Gender_val+medi, family = binomial(), data = o
 ip032 <- glm(sev_n ~ bmi+age+race+Gender_val+medi, family = binomial(), data = obsy32)
 ip033 <- glm(sev_n ~ bmi+age+race+Gender_val+medi, family = binomial(), data = obsy33)
 
-### 3X4 models with INTERMIT as ref.
+### 3X3 models with INTERMIT as ref.
 ip110 <- glm(sev_n ~ bmi+age+race+Gender_val+medi, family = binomial(), data = obsy110)
 ip111 <- glm(sev_n ~ bmi+age+race+Gender_val+medi, family = binomial(), data = obsy111)
 ip112 <- glm(sev_n ~ bmi+age+race+Gender_val+medi, family = binomial(), data = obsy112)
@@ -317,7 +317,7 @@ summary(margins(ip031, variables = c("bmi")))
 summary(margins(ip032, variables = c("bmi")))
 summary(margins(ip033, variables = c("bmi")))
 
-# 3x4 models with INTMIT as ref.
+# 3x3 models with INTMIT as ref.
 summary(margins(ip110, variables = c("bmi")))
 summary(margins(ip111, variables = c("bmi")))
 summary(margins(ip112, variables = c("bmi")))
