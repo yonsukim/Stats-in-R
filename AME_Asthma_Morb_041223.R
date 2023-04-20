@@ -21,7 +21,7 @@ data(mtcars)
 
     
  
-obs <- read_excel("C:\\Users\\kimy89\\Dropbox\\Research\\Asthma_Cormobdities\\Out\\out.xlsx", sheet="COMM_IP")
+obs <- read_excel("C:\\Users\\....\\Dropbox\\Research\\Asthma_Cormobdities\\Out\\out.xlsx", sheet="COMM_IP")
 
 
 # View(obs)
@@ -75,6 +75,7 @@ obsy122 = subset(obs, Race_val %in% c("2","3","4","5") & AgeInYears > 18 & bmi %
 obsy130 = subset(obs, Race_val %in% c("2","3","4","5") & AgeInYears > 18 & bmi %in% c("0","3") & sev_n %in% c("0","1"))
 obsy131 = subset(obs, Race_val %in% c("2","3","4","5") & AgeInYears > 18 & bmi %in% c("0","3") & sev_n %in% c("0","2"))
 obsy132 = subset(obs, Race_val %in% c("2","3","4","5") & AgeInYears > 18 & bmi %in% c("0","3") & sev_n %in% c("0","3"))
+
 
 # View(obss)
 
@@ -333,7 +334,6 @@ summary(margins(ip132, variables = c("bmi")))
 
 summary(margins(ip132, variables = c("Gender_val")))
 summary(margins(ip132, variables = c("age")))
-summary(margins(ip132, variables = c("age4")))
 summary(margins(ip132, variables = c("race")))
 summary(margins(ip132, variables = c("medi")))
 
