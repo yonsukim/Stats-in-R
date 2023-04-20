@@ -21,7 +21,7 @@ data(mtcars)
 
     
  
-obs <- read_excel("C:\\Users\\...\\Dropbox\\Research\\Asthma_Cormobdities\\Out\\out.xlsx", sheet="COMM_IP")
+obs <- read_excel("C:\\Users\\kimy89\\Dropbox\\Research\\Asthma_Cormobdities\\Out\\out.xlsx", sheet="COMM_IP")
 
 
 # View(obs)
@@ -330,6 +330,12 @@ summary(margins(ip130, variables = c("bmi")))
 summary(margins(ip131, variables = c("bmi")))
 summary(margins(ip132, variables = c("bmi")))
 
+
+summary(margins(ip132, variables = c("Gender_val")))
+summary(margins(ip132, variables = c("age")))
+summary(margins(ip132, variables = c("age4")))
+summary(margins(ip132, variables = c("race")))
+summary(margins(ip132, variables = c("medi")))
 
 #### END OF THE TEST - 04/19/2023 ####
 
