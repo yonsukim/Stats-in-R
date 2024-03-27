@@ -332,6 +332,11 @@ summary(margins(ip131, variables = c("bmi")))
 summary(margins(ip132, variables = c("bmi")))
 
 
+summary(margins(ip130, variables = c("Gender_val")))
+summary(margins(ip130, variables = c("age")))
+summary(margins(ip130, variables = c("race")))
+summary(margins(ip130, variables = c("medi")))
+
 summary(margins(ip132, variables = c("Gender_val")))
 summary(margins(ip132, variables = c("age")))
 summary(margins(ip132, variables = c("race")))
